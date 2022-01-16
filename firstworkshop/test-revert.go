@@ -2,7 +2,6 @@ package firstworkshop
 
 import (
 	"fmt"
-	"log"
 	"sync"
 )
 
@@ -24,7 +23,7 @@ func RevertTest() bool {
 		mu.Unlock()
 	} else if err != nil {
 		fmt.Println("if invalid")
-		log.Printf("[SubmitOrder] [ERROR] 'refID: %s' '[%+v]' create order through fillgoods failed %s\n", refID, req, err.Error())
+		// log.Printf("[SubmitOrder] [ERROR] 'refID: %s' '[%+v]' create order through fillgoods failed %s\n", refID, req, err.Error())
 		mu.Lock()
 		invalid = append(invalid, o)
 		// channelCheckIsLimitExceed <- false
