@@ -211,12 +211,4 @@ func main() {
 	// 		fmt.Println(add())
 	// 		fmt.Println(add())
 	// 		return
-<<<<<<< HEAD
-
-	fmt.Println("say say say")
-
-	fmt.Println("so so so")
-
-=======
->>>>>>> parent of 64ccfce (test commit)
 }
