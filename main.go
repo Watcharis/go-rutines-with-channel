@@ -203,6 +203,11 @@ func main() {
 	s0 := firstworkshop.MultipleGoRutines08()
 	fmt.Println("s0 ->", s0)
 
+	step := 1
+	size := 4
+
+	progress := float64(step) / float64(size) * 100
+	fmt.Println("progress ->", progress)
 	// closure function สามารถ สเเตก ค่า ที่ ถุกเก็บไว้ใน memory ได้
 	// จาก func one.XX() มีการประกาศ i = 0 เเล้ว ทำการ return สเเตกที่ i += 1
 	// ทุกๆครั้ง ที่เรียก add() จะทำการ บวกค่า 1
