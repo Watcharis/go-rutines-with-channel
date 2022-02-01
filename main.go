@@ -208,8 +208,6 @@ func main() {
 
 	progress := float64(step) / float64(size) * 100
 	fmt.Println("progress ->", progress)
-
-	fmt.Println("hello poii.in")
 	// closure function สามารถ สเเตก ค่า ที่ ถุกเก็บไว้ใน memory ได้
 	// จาก func one.XX() มีการประกาศ i = 0 เเล้ว ทำการ return สเเตกที่ i += 1
 	// ทุกๆครั้ง ที่เรียก add() จะทำการ บวกค่า 1
