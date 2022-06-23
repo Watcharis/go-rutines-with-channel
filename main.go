@@ -218,4 +218,7 @@ func main() {
 	// 		fmt.Println(add())
 	// 		fmt.Println(add())
 	// 		return
+
+	firstworkshop.Semaphone()
+
 }
