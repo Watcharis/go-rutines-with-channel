@@ -44,8 +44,8 @@ func Semaphone() error {
 		sem <- 1
 		wg.Add(1)
 		go logData(i, v, sem, &wg)
-		wg.Wait()
 	}
+	wg.Wait()
 
 	endTime := time.Since(startTime)
 	fmt.Println("endTime ->", endTime)

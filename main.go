@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"sync"
 	"time"
@@ -8,6 +9,43 @@ import (
 )
 
 func main() {
+	// firstworkshop.Test09()
+	// firstworkshop.Test10()
+	// main2()
+
+	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	start := time.Now()
+	fmt.Println("start ->", start)
+	id := 1
+	data := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	// dataMap := map[int]int{}
+
+	for _, i := range data {
+		if i == id {
+			fmt.Println("duplicate")
+		}
+	}
+
+	// for i := range data {
+	// 	_, ok := dataMap[i]
+	// 	if !ok {
+	// 		dataMap[i] = i
+	// 	}
+	// }
+	// if _, ok := dataMap[id]; ok {
+	// 	fmt.Println("duplicate")
+	// }
+	end := time.Since(start).Seconds()
+	fmt.Println("end ->", end)
+
+	firstworkshop.Test11()
+
+}
+
+func main2() {
 	start := time.Now()
 	wg := new(sync.WaitGroup)
 	strChan := make(chan string)
@@ -221,4 +259,16 @@ func main() {
 
 	firstworkshop.Semaphone()
 
+	func() {
+		a := make(chan int)
+		close(a)
+		val := <-a
+		fmt.Println(val)
+
+		var stoc map[string]float64
+		pric := stoc["ms"]
+		fmt.Println(pric)
+
+		go fmt.Println("hello")
+	}()
 }
