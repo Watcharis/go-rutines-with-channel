@@ -41,7 +41,10 @@ func main() {
 	end := time.Since(start).Seconds()
 	fmt.Println("end ->", end)
 
-	firstworkshop.Test11()
+	// firstworkshop.Test11()
+	a, b := firstworkshop.BeforeTest12()
+	fmt.Println("a ->", a)
+	fmt.Println("b ->", b)
 
 }
 
