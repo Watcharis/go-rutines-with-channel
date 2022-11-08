@@ -37,7 +37,6 @@ func Semaphone() error {
 
 	sem := make(chan int, 10)
 	initToken := PrepareData()
-	fmt.Println("initToken ->", len(initToken))
 
 	wg := sync.WaitGroup{}
 
