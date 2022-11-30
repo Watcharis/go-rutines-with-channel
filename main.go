@@ -1,50 +1,54 @@
 package main
 
 import (
-	"context"
 	"fmt"
+	"os"
 	"sync"
 	"time"
 	"watcharis/go-routines-chanel/firstworkshop"
+	"watcharis/go-routines-chanel/syncmaps"
 )
 
 func main() {
-	// firstworkshop.Test09()
-	// firstworkshop.Test10()
-	// main2()
+	// Test semaphone
+	var only string
 
-	ctx := context.Background()
-	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
-	defer cancel()
+	// If you want to set environments variable before run program,
+	// just run commandline ```export {ENV_VARIABLE}={value}``` in terminal.
+	// Steps
+	//	1. export ONLY=false
+	//	2. go run --race main.go
 
-	start := time.Now()
-	fmt.Println("start ->", start)
-	id := 1
-	data := []int{1, 2, 3, 4, 5, 6, 7, 8}
-	// dataMap := map[int]int{}
+	// If you want to speacific environments variable
+	// Can try example
+	// Example
+	// err := os.Setenv("ONLY", "true")
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
 
-	for _, i := range data {
-		if i == id {
-			fmt.Println("duplicate")
-		}
+	only = os.Getenv("ONLY")
+	if only != "true" {
+		a, b := firstworkshop.BeforeTest12()
+		fmt.Println("a ->", a)
+		fmt.Println("b ->", b)
+
+		// main2()
 	}
 
-	// for i := range data {
-	// 	_, ok := dataMap[i]
-	// 	if !ok {
-	// 		dataMap[i] = i
-	// 	}
-	// }
-	// if _, ok := dataMap[id]; ok {
-	// 	fmt.Println("duplicate")
-	// }
-	end := time.Since(start).Seconds()
-	fmt.Println("end ->", end)
+	wg := new(sync.WaitGroup)
+	sm := new(sync.Map)
+	mu := new(sync.Mutex)
 
-	// firstworkshop.Test11()
-	a, b := firstworkshop.BeforeTest12()
-	fmt.Println("a ->", a)
-	fmt.Println("b ->", b)
+	sym := syncmaps.SyncMaps{
+		Sm: sm,
+		Wg: wg,
+		Mu: mu,
+	}
+
+	// sym.TutorialOne()
+	smp := sym.TutorialTwo()
+	sym.ReadMap(smp)
 
 }
 
